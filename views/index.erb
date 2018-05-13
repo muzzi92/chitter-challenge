@@ -6,6 +6,15 @@
   </head>
   <body>
     <h1> Twitter </h1>
+
+    <form action="/users/new" method="get">
+      <input type="submit" value="Sign Up!">
+    </form>
+
+    <% if @user %>
+      <h3>Welcome, <%= @user.email %></h3>
+    <% end %>
+
     <br>
     <p>
       Write a tweet:
