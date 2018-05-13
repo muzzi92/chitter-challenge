@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User
 
   attr_reader :id, :name, :username, :email
@@ -16,7 +18,8 @@ class User
   end
 
   def self.create(name, username, email, password)
-    user = choose_database.exec("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{password}') RETURNING *;")
+    passkey = BCrypt::Password.create(password)
+    user = choose_database.exec("INSERT INTO users (name, username, email, password) VALUES('#{name}', '#{username}', '#{email}', '#{passkey}') RETURNING *;")
     User.new(user[0]['id'], user[0]['name'], user[0]['username'], user[0]['email'], user[0]['password'])
   end
 
@@ -25,7 +28,6 @@ class User
     result = choose_database.exec("SELECT * FROM users WHERE id=#{id};")
     User.new(result[0]['id'], result[0]['name'], result[0]['username'], result[0]['email'], result[0]['password'])
   end
-
 
   private
 

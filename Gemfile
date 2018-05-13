@@ -8,6 +8,7 @@ gem 'capybara'
 gem 'shotgun'
 gem 'sinatra'
 gem 'pg'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
