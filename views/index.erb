@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Welcome to Chitter! </title>
+  </head>
+  <body>
+    <form action="/posted_peep" method="post">
+      <input type="text" name="post_peep">
+      <input type="submit" value="Submit">
+    </form>
+
+    <ul>
+      <% @peeps.select do |peep| %>
+      <li> <%= peep.text %> - posted: <%= peep.time %> </li>
+      <% end.reverse %>
+    </ul>
+  </body>
+</html>
