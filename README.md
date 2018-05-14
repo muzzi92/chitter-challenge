@@ -11,7 +11,7 @@ This app was built using Test Driven Development
  + Fork this repository and clone it to your machine
  + Run the command ``` gem install bundle ```
  + Run ``` bundle ```
- + Enter ``` rackup ``` to load the game to a local server
+ + Enter ``` rackup ``` to load the app to a local server
 
  ## The following technologies were used in the creation of this system: ##
  + Rake
